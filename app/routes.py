@@ -1,5 +1,7 @@
+from flask import render_template
 from app import app
+
 
 @app.route("/")
 def index():
-  return "Hello World From Flask"
+  return render_template("index.html", announcements = ["Work Under Progress"] )

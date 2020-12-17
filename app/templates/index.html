@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if announcements %}
+    <ul>
+      {% for announcement in announcements %}
+        <li>{{ announcement }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p> Hey There .. Hope You Are Ready To Contribute </p>
+  {% endif %}
+{% endblock %}
