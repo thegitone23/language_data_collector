@@ -1,6 +1,7 @@
-from app import db, login
+from app import db, login, Config
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
+from flask_admin.contrib.sqla import ModelView
 
 class User(UserMixin, db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -39,3 +40,7 @@ class Reply(db.Model):
 @login.user_loader
 def load_user(id):
   return User.query.get(int(id))
+
+class MyModelView(ModelView):
+  def is_accessible(self):
+    return current_user.is_authenticated and current_user.username == Config.ADMIN_NAME
