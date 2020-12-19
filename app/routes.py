@@ -7,7 +7,7 @@ from app.models import User
 @app.route("/")
 @app.route("/index")
 def index():
-  return render_template("index.html", announcements = ["Work Under Progress"] )
+  return render_template("index.html", user = current_user )
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
