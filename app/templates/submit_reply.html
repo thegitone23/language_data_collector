@@ -5,7 +5,7 @@
     <p>
       <h3>Sentence : "{{sentence}}"</h3>
       {{ form.text.label }}
-      {{ form.text(text=previous_reply) }}
+      {{ form.text(value=previous_reply) }}
       {% for error in form.text.errors %}
         <span style="color : red;"> {{ error }} </span>
       {% endfor %}
