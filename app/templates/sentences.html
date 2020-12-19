@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content  %}
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for sentence in sentence_list %}
+      <tr>
+        <td><a href="{{ url_for('reply_to', sentence_id=sentence.id ) }}">"{{sentence.text}}" <mark>{{sentence.reply_count}} Replies</mark></a></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+{% endblock %}

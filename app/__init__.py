@@ -15,3 +15,4 @@ admin = Admin(app)
 from . import routes, models
 admin.add_view(models.MyModelView(models.User, db.session))
 admin.add_view(models.MyModelView(models.Sentence, db.session))
+admin.add_view(models.MyModelView(models.Reply, db.session))

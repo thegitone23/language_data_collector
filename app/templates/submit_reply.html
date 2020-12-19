@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content  %}
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+      <h3>Sentence : "{{sentence}}"</h3>
+      {{ form.text.label }}
+      {{ form.text(text=previous_reply) }}
+      {% for error in form.text.errors %}
+        <span style="color : red;"> {{ error }} </span>
+      {% endfor %}
+    </p>
+    <p> {{ form.submit() }} </p>
+  </form>    
+{% endblock %}
