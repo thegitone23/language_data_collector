@@ -57,18 +57,13 @@ def reply_to(sentence_id):
   form = SubmitReplyForm()
   sentence = Sentence.query.get_or_404(sentence_id)
   previous_reply = Reply.query.filter_by(sentence_id=sentence_id).filter_by(user_id=current_user.id).first()
-  new_reply_count = sentence.reply_count
   previous_reply_text=""
 
-  print(previous_reply)
   if previous_reply:
     previous_reply_text = previous_reply.text
-  else:
-    new_reply_count += 1
 
   if form.validate_on_submit():
     txt = form.text.data
-    print(txt)
     if previous_reply:
       previous_reply.text = txt
       db.session.commit()
@@ -80,5 +75,4 @@ def reply_to(sentence_id):
 
     flash("Thanks For The Reply .. Keep Up The Good Work..")
     return redirect(url_for("index"))
-
   return render_template("submit_reply.html", sentence=sentence.text, previous_reply=previous_reply_text, form=form)
