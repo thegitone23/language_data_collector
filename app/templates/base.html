@@ -14,6 +14,7 @@
     <ul>
     {% if user %}
       {% if user.is_authenticated  %}
+        <li> <a href="{{ url_for('sentences') }}"> <h2> Help Translation </h2> </a> </li>
         <li> <a href="{{ url_for('logout') }}"> <h2> Logout </h2> </a> </li>
       {% else %}
         <li> <a href="{{ url_for('register') }}"> <h2> Register </h2> </a> </li>

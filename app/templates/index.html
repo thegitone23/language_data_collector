@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% if announcements %}
-    <ul>
-      {% for announcement in announcements %}
-        <li>{{ announcement }}</li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p> Hey There .. Hope You Are Ready To Contribute </p>
-  {% endif %}
+  <h1>Welcome</h1>
+  <blockquote>
+    We are working on our English-Gaddi translation project and this is our data collection platform <br/>
+    <hr />
+    {% if user %}
+      {% if user.is_authenticated %}
+        Please help us by providing us with some gaddi translations of some english senteces we have provided
+      {% else %}
+        If you are a familiar with gaddi language and would like to help us by translating few english sentences please consider registering
+      {% endif %}
+    {% else %}
+      If you are a familiar with gaddi language and would like to help us by translating few english sentences please consider registering
+    {% endif %}
+  </blockquote>
 {% endblock %}

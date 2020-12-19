@@ -346,6 +346,7 @@ form {
   min-width: var(--width-card);
   padding: 1.5rem;
   text-align: var(--justify-normal);
+  margin: auto;
 }
 
 form header {
