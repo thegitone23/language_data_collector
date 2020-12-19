@@ -8,7 +8,7 @@ from app.models import User, Sentence, Reply
 @app.route("/")
 @app.route("/index")
 def index():
-  return render_template("index.html", user = current_user )
+  return render_template("index.html", user=current_user )
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -24,7 +24,7 @@ def login():
     login_user(user, remember=form.remember_me.data) 
     return redirect(url_for("index"))
 
-  return render_template("login.html", form=form)
+  return render_template("login.html", form=form, user=current_user)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -38,7 +38,7 @@ def register():
     db.session.commit()
     flash("Congratulations, you are now a registered user!")
     return redirect(url_for("login"))
-  return render_template("register.html", title="Register", form=form)
+  return render_template("register.html", title="Register", form=form, user=current_user)
 
 @app.route("/logout")
 def logout():
@@ -49,7 +49,7 @@ def logout():
 @login_required
 def sentences():
   sentence_list = Sentence.query.all()
-  return render_template("sentences.html", sentence_list=sentence_list)
+  return render_template("sentences.html", sentence_list=sentence_list, user=current_user)
 
 @app.route("/reply_to/<sentence_id>", methods=["GET", "POST"])
 @login_required
@@ -75,4 +75,4 @@ def reply_to(sentence_id):
 
     flash("Thanks For The Reply .. Keep Up The Good Work..")
     return redirect(url_for("index"))
-  return render_template("submit_reply.html", sentence=sentence.text, previous_reply=previous_reply_text, form=form)
+  return render_template("submit_reply.html", sentence=sentence.text, previous_reply=previous_reply_text, form=form, user=current_user)
