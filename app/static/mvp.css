@@ -396,7 +396,7 @@ label {
 }
 
 /* Tables */
-table {
+table.mvp {
   border: 1px solid var(--color-bg-secondary);
   border-radius: var(--border-radius);
   border-spacing: 0;
@@ -407,14 +407,14 @@ table {
   white-space: nowrap;
 }
 
-table td,
-table th,
-table tr {
+table.mvp td,
+table.mvp th,
+table.mvp tr {
   padding: 0.4rem 0.8rem;
   text-align: var(--justify-important);
 }
 
-table thead {
+table.mvp thead {
   background-color: var(--color);
   border-collapse: collapse;
   border-radius: var(--border-radius);
@@ -423,20 +423,20 @@ table thead {
   padding: 0;
 }
 
-table thead th:first-child {
+table.mvp thead th:first-child {
   border-top-left-radius: var(--border-radius);
 }
 
-table thead th:last-child {
+table.mvp thead th:last-child {
   border-top-right-radius: var(--border-radius);
 }
 
-table thead th:first-child,
-table tr td:first-child {
+table.mvp thead th:first-child,
+table.mvp tr td:first-child {
   text-align: var(--justify-normal);
 }
 
-table tr:nth-child(even) {
+table.mvp tr:nth-child(even) {
   background-color: var(--color-accent);
 }
 

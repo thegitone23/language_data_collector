@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block content  %}
+  <script type="text/javascript" src="{{ url_for('static', filename='keyboard.js' ) }}" charset="UTF-8"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='keyboard.css' ) }}">
   <form action="" method="post">
     {{ form.hidden_tag() }}
     <p>
       <h3>Sentence : "{{sentence}}"</h3>
       {{ form.text.label }}
-      {{ form.text(value=previous_reply) }}
+      {{ form.text(value=previous_reply, class='keyboardInput') }}
       {% for error in form.text.errors %}
         <span style="color : red;"> {{ error }} </span>
       {% endfor %}
